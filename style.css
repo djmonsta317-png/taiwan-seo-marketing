@@ -1,0 +1,161 @@
+
+/* 全站基本設定 */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7f5ef;
+  color: #252820;
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a17b35;
+}
+
+/* 頂部導覽列 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  border-bottom: 1px solid #e4e0d6;
+  background: #f7f5ef;
+}
+
+header > p {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+}
+
+/* 首頁主視覺 */
+#home {
+  padding: 110px 10% 120px;
+  background: #eeece3;
+}
+
+#home > p:first-child {
+  color: #987532;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+h1 {
+  margin: 24px 0;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.35;
+  letter-spacing: -2px;
+}
+
+#home > p:nth-of-type(2) {
+  max-width: 540px;
+  color: #62645a;
+  font-size: 17px;
+}
+
+#home > a {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 13px 26px;
+  background: #292d25;
+  color: white;
+  transition: background 0.2s;
+}
+
+#home > a:hover {
+  background: #8c6a2e;
+  color: white;
+}
+
+/* 服務項目 */
+#services {
+  padding: 90px 10%;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.4;
+}
+
+#services article {
+  padding: 25px 0;
+  border-bottom: 1px solid #dcd9cf;
+}
+
+#services article h3 {
+  font-size: 21px;
+}
+
+#services article p {
+  color: #686a61;
+}
+
+/* 聯絡區域 */
+#contact {
+  padding: 75px 10%;
+  background: #e9e6dc;
+}
+
+#contact a {
+  display: inline-block;
+  margin-top: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #8e713c;
+}
+
+/* 頁尾 */
+footer {
+  padding: 24px 8%;
+  background: #252820;
+  color: #e9e6dc;
+  font-size: 13px;
+}
+
+/* 手機版排版 */
+@media (max-width: 650px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px 6%;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  #home {
+    padding: 70px 7% 85px;
+  }
+
+  h1 {
+    letter-spacing: -1px;
+  }
+
+  #services,
+  #contact {
+    padding: 60px 7%;
+  }
+}
