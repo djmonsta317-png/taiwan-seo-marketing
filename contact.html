@@ -41,7 +41,7 @@
 </form>
 
 <script>
- https://script.google.com/macros/s/AKfycbz_X4Itd-8ghuTlOM_ipGU4Xuhu3Kbp-ImFFOOFUB0nNWZ_DVvzZk8Rqn62huvMzys/exec
+  const scriptURL = "https://script.google.com/macros/s/AKfycbz_X4Itd-8ghuTlOM_ipGU4Xuhu3Kbp-ImFFOOFUB0nNWZ_DVvzZk8Rqn62huvMzys/exec";
 
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
@@ -68,12 +68,10 @@
         body: JSON.stringify(data)
       });
 
-      status.textContent =
-        "表單已送出請求，請確認信箱是否收到通知。";
+      status.textContent = "表單已送出請求，請確認信箱是否收到通知。";
       form.reset();
     } catch (error) {
-      status.textContent =
-        "傳送時發生錯誤，請稍後再試。";
+      status.textContent = "傳送時發生錯誤，請稍後再試。";
     }
   });
 </script>
