@@ -43,39 +43,43 @@
 <script>
   const scriptURL = "https://script.google.com/macros/s/AKfycbz_X4Itd-8ghuTlOM_ipGU4Xuhu3Kbp-ImFFOOFUB0nNWZ_DVvzZk8Rqn62huvMzys/exec";
 
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
+  // 確保網頁 DOM 載入完成後才執行
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault();
+    if (!form) return;
 
-    status.textContent = "訊息傳送中，請稍候……";
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault(); // 阻止網址跳轉與預設送出
 
-    const data = {
-      name: form.name.value.trim(),
-      phone: form.phone.value.trim(),
-      email: form.email.value.trim(),
-      message: form.message.value.trim()
-    };
+      status.textContent = "訊息傳送中，請稍候……";
 
-    try {
-      await fetch(scriptURL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8"
-        },
-        body: JSON.stringify(data)
-      });
+      const data = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        message: form.message.value.trim()
+      };
 
-      status.textContent = "表單已送出請求，請確認信箱是否收到通知。";
-      form.reset();
-    } catch (error) {
-      status.textContent = "傳送時發生錯誤，請稍後再試。";
-    }
+      try {
+        await fetch(scriptURL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(data)
+        });
+
+        status.textContent = "表單已送出請求，請確認信箱是否收到通知。";
+        form.reset();
+      } catch (error) {
+        status.textContent = "傳送時發生錯誤，請稍後再試。";
+      }
+    });
   });
 </script>
-
   </main>
 
   <footer>
